@@ -3,8 +3,17 @@ public class Person {
     String surname;
     int age;
     boolean gender;
+    int idGen=1;
+    int id;
 
-    public Person() { }
+    public Person(){
+        idGen=idGen++;
+        id=idGen;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public Person(String name, String surname, int age, boolean gender) {
         this.name = name;
@@ -47,11 +56,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
-                '}';
+        return "Hi, i'm" + name + " " + surname + " a " + age + "-year-old " + (this.gender ? "Female" : "Male") + '\n';
     }
 }

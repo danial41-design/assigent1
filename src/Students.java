@@ -1,42 +1,34 @@
 import java.util.ArrayList;
 
 public class Students extends Person {
-    int StudentId;
-    private static int studentIdgen=1;
+
 
     ArrayList<Integer> grades = new ArrayList<>();
     float gpa;
 
-    public Students() {
-        super();
-        this.StudentId = studentIdgen++;
-    }
+
     public Students(String name, String surname, int age, boolean gender, ArrayList<Integer> grades, float gpa) {
         super(name, surname, age, gender);
         this.grades = grades;
         this.gpa = gpa;
     }
 
-    public int getStudentId() {
-        return StudentId;
-    }
-
+    public Students(){ }
     public void addGrade(int grade) {
         grades.add(grade);
         calculateGpa();
     }
 
-    public int getstudentId() {
-        return StudentId;
-    }
+
 
     private void calculateGpa() {
         float intsum = 0;
-
+        float sum = 0;
         for(Integer grade:grades) {
             intsum += grade;
         }
-        gpa = intsum / grades.size();
+        sum = intsum / grades.size();
+        gpa = (float) (sum * 0.04);
     }
     public float getGpa() {
         return gpa;
@@ -44,6 +36,6 @@ public class Students extends Person {
 
     @Override
     public String toString() {
-        return "I'm student with id " + StudentId;
+        return "I'm student with id " + id;
     }
 }
